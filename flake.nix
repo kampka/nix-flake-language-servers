@@ -10,15 +10,18 @@
 
         typescript-language-server = pkgs.callPackage ./packages/language-server-typescript { };
         yaml-language-server = pkgs.callPackage ./packages/yaml-language-server { };
+        
+        neovimWrapper = pkgs.callPackage ./packages/neovim-wrapper.nix { servers = [ typescript-language-server yaml-language-server ]; };
+
       in
       rec {
         devShell = pkgs.mkShell {
           name = "nix-flake-language-servers";
-          packages = with pkgs; [ nixpkgs-fmt ];
+          packages = with pkgs; [ nixpkgs-fmt (neovimWrapper { neovim = pkgs.neovim; }) ];
         };
         packages = flake-utils.lib.flattenTree {
-          inherit typescript-language-server yaml-language-server;
-        };
+          inherit typescript-language-server yaml-language-server ;
+        } // { inherit neovimWrapper; };
         apps = {
           typescript-language-server = flake-utils.lib.mkApp { drv = packages.typescript-language-server; };
           yaml-language-server = flake-utils.lib.mkApp { drv = packages.yaml-language-server; };

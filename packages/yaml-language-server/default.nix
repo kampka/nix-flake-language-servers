@@ -2,7 +2,7 @@
 
 mkYarnPackage rec {
   pname = "yaml-language-server";
-  version = builtins.readFile ./src/VERSION ;
+  version = builtins.readFile ./src/VERSION;
 
   src = fetchFromGitHub {
     owner = "redhat-developer";

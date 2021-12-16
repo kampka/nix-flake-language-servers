@@ -1,13 +1,16 @@
-{pkgs, stdenv, lib, makeWrapper, servers, ...}:
+{ pkgs, stdenv, lib, makeWrapper, provided-servers, ... }:
 
-{ neovim }:
+{ neovim, language-servers ? [ ] }:
+let
+  servers = provided-servers ++ language-servers;
+in
 stdenv.mkDerivation {
   name = "${neovim.name}-with-language-servers";
-  version = "2021-12-15";
+  version = "21.12.1";
 
 
-  nativeBuildInputs = [ makeWrapper ];                                     
-  phases = [ "installPhase" ];                                                                                                                                                           
+  nativeBuildInputs = [ makeWrapper ];
+  phases = [ "installPhase" ];
   installPhase = ''
     set -x
     mkdir -p $out/bin

@@ -17,7 +17,7 @@
       rec {
         devShell = pkgs.mkShell {
           name = "nix-flake-language-servers";
-          packages = with pkgs; [ nixpkgs-fmt ];
+          packages = with pkgs; [ nixpkgs-fmt yarn2nix ];
         };
         packages = flake-utils.lib.flattenTree
           {

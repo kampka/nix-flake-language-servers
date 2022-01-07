@@ -2,13 +2,13 @@
 
 mkYarnPackage rec {
   pname = "typescript-language-server";
-  version = "${lib.strings.sanitizeDerivationName (builtins.readFile ./src/VERSION) }";
+  version = builtins.replaceStrings [ "\n" ] [ "" ] (builtins.readFile ./src/VERSION);
 
   src = fetchFromGitHub {
     owner = "typescript-language-server";
     repo = "typescript-language-server";
     rev = "v${version}";
-    sha256 = "sha256-K3PuNriY9BKXIuaQ6NRcFnhTetQrFJM3wtRBThPg0T8=";
+    sha256 = "sha256-b0cbdIfiJ8kyfznNdcXu2ex7yGgrfrMEtN6cf+pV/v0=";
   };
 
   packageJSON = ./src/package.json;

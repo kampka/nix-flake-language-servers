@@ -8,11 +8,10 @@ mkYarnPackage rec {
     owner = "redhat-developer";
     repo = "yaml-language-server";
     rev = version;
-    sha256 = "sha256-xQFTVN/OYHBtGRRmfmUmgNCxqLquXn/fdquVi0yBZ4E=";
+    sha256 = "sha256-QRiKzU9Mk+4OzRqxfSSK1qqkZhWtk0gpfV+UpqGVOFs=";
   };
 
   packageJSON = ./src/package.json;
-  yarnLock = ./src/yarn.lock;
   yarnNix = ./src/yarn-dependencies.nix;
 
   nativeBuildInputs = [ makeWrapper ];

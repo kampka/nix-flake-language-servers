@@ -1,4 +1,4 @@
-{ lib, mkYarnPackage, fetchFromGitHub, makeWrapper, nodejs-10_x }:
+{ lib, mkYarnPackage, fetchFromGitHub, makeWrapper, nodejs-16_x }:
 
 mkYarnPackage rec {
   pname = "typescript-language-server";
@@ -8,7 +8,7 @@ mkYarnPackage rec {
     owner = "typescript-language-server";
     repo = "typescript-language-server";
     rev = "v${version}";
-    sha256 = "sha256-b0cbdIfiJ8kyfznNdcXu2ex7yGgrfrMEtN6cf+pV/v0=";
+    sha256 = "sha256-tgynF/9UEzzeg8N38Kw2dPwtrbNSV9ok0iEw4Yf3M5c=";
   };
 
   packageJSON = ./src/package.json;
@@ -22,7 +22,7 @@ mkYarnPackage rec {
 
   postInstall = ''
     chmod a+x $out/bin/${pname}
-    wrapProgram $out/bin/${pname} --prefix PATH : ${lib.makeBinPath [ nodejs-10_x ]}
+    wrapProgram $out/bin/${pname} --prefix PATH : ${lib.makeBinPath [ nodejs-16_x ]}
   '';
 
   passthru = {

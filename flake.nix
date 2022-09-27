@@ -17,11 +17,11 @@
       rec {
         devShell = pkgs.mkShell {
           name = "nix-flake-language-servers";
-          packages = with pkgs; [ nixpkgs-fmt yarn2nix ];
+          packages = with pkgs; [ nixpkgs-fmt yarn2nix node2nix ];
         };
         packages = flake-utils.lib.flattenTree
           {
-            inherit typescript-language-server yaml-language-server;
+            inherit typescript-language-server yaml-language-server ;
           } // { inherit neovimWrapper; };
         apps = {
           typescript-language-server = flake-utils.lib.mkApp { drv = packages.typescript-language-server; };

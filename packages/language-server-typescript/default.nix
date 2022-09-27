@@ -11,8 +11,8 @@ mkYarnPackage rec {
     sha256 = "sha256-bq/MwMCzeHi8SD3Y6uUWDMUB1p/F4OeX++PfM/8KW78=";
   };
 
-  packageJSON = ./src/package.json;
-  yarnNix = ./src/yarn-dependencies.nix;
+#  packageJSON = ./src/package.json;
+#  yarnNix = ./src/yarn-dependencies.nix;
 
   nativeBuildInputs = [ makeWrapper ];
 

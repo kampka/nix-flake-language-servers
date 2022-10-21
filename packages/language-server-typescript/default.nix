@@ -8,7 +8,7 @@ mkYarnPackage rec {
     owner = "typescript-language-server";
     repo = "typescript-language-server";
     rev = "v${version}";
-    sha256 = "sha256-bq/MwMCzeHi8SD3Y6uUWDMUB1p/F4OeX++PfM/8KW78=";
+    sha256 = "sha256-0r+bc7zGuOflPxb9Q78ilYSz725lunt/OUH4aAuQPq8=";
   };
 
 #  packageJSON = ./src/package.json;

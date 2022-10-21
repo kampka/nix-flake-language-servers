@@ -6,13 +6,12 @@ let
 in
 stdenv.mkDerivation {
   name = "${neovim.name}-with-language-servers";
-  version = "21.12.1";
+  version = "22.10.1";
 
 
   nativeBuildInputs = [ makeWrapper ];
   phases = [ "installPhase" ];
   installPhase = ''
-    set -x
     mkdir -p $out/bin
     ln -sf ${neovim}/bin/nvim $out/bin/nvim
     wrapProgram $out/bin/nvim --prefix PATH : "${lib.makeBinPath servers }"

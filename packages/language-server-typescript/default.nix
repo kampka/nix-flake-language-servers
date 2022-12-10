@@ -8,11 +8,8 @@ mkYarnPackage rec {
     owner = "typescript-language-server";
     repo = "typescript-language-server";
     rev = "v${version}";
-    sha256 = "sha256-0r+bc7zGuOflPxb9Q78ilYSz725lunt/OUH4aAuQPq8=";
+    sha256 = "sha256-AmibDPrqnQrTJniW4eVd67AjVcdUHCrE6G7nxMcLLHs=";
   };
-
-#  packageJSON = ./src/package.json;
-#  yarnNix = ./src/yarn-dependencies.nix;
 
   nativeBuildInputs = [ makeWrapper ];
 

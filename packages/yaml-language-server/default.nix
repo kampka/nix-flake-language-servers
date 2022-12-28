@@ -8,7 +8,7 @@ mkYarnPackage rec {
     owner = "redhat-developer";
     repo = "yaml-language-server";
     rev = version;
-    sha256 = "sha256-QRiKzU9Mk+4OzRqxfSSK1qqkZhWtk0gpfV+UpqGVOFs=";
+    sha256 = "sha256-mfFrmT85BstemZnn4iZl5Em05dSG7HDGbV+WYt+qb8c=";
   };
 
   packageJSON = ./src/package.json;

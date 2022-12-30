@@ -2,7 +2,7 @@
 
 mkYarnPackage rec {
   pname = "typescript-language-server";
-  version = builtins.replaceStrings [ "\n" ] [ "" ] (builtins.readFile ./src/VERSION);
+  version = "3.0.0";
 
   src = fetchFromGitHub {
     owner = "typescript-language-server";

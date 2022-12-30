@@ -8,7 +8,7 @@ mkYarnPackage rec {
     owner = "typescript-language-server";
     repo = "typescript-language-server";
     rev = "v${version}";
-    sha256 = "sha256-9V0rBYmYiqK+8TDqPFv9u0dGfPFhk5p3RYAUIx7Qm0Y=";
+    sha256 = "sha256-i6E8lkxBnsdKl/xFYyDpX6T/51u/ESAoQB5SLCQEBQs=";
   };
 
   nativeBuildInputs = [ makeWrapper ];

@@ -1,5 +1,10 @@
-{ lib, mkYarnPackage, fetchFromGitHub, makeWrapper, nodejs }:
-
+{
+  lib,
+  mkYarnPackage,
+  fetchFromGitHub,
+  makeWrapper,
+  nodejs,
+}:
 mkYarnPackage rec {
   pname = "yaml-language-server";
   version = "1.10.0";
@@ -11,7 +16,7 @@ mkYarnPackage rec {
     sha256 = "sha256-mfFrmT85BstemZnn4iZl5Em05dSG7HDGbV+WYt+qb8c=";
   };
 
-  nativeBuildInputs = [ makeWrapper ];
+  nativeBuildInputs = [makeWrapper];
 
   buildPhase = ''
     yarn --offline build

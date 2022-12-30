@@ -1,5 +1,10 @@
-{ lib, mkYarnPackage, fetchFromGitHub, makeWrapper, nodejs-16_x }:
-
+{
+  lib,
+  mkYarnPackage,
+  fetchFromGitHub,
+  makeWrapper,
+  nodejs-16_x,
+}:
 mkYarnPackage rec {
   pname = "typescript-language-server";
   version = "3.0.0";
@@ -11,7 +16,7 @@ mkYarnPackage rec {
     sha256 = "sha256-i6E8lkxBnsdKl/xFYyDpX6T/51u/ESAoQB5SLCQEBQs=";
   };
 
-  nativeBuildInputs = [ makeWrapper ];
+  nativeBuildInputs = [makeWrapper];
 
   buildPhase = ''
     yarn --offline build
@@ -19,7 +24,7 @@ mkYarnPackage rec {
 
   postInstall = ''
     chmod a+x $out/bin/${pname}
-    wrapProgram $out/bin/${pname} --prefix PATH : ${lib.makeBinPath [ nodejs-16_x ]}
+    wrapProgram $out/bin/${pname} --prefix PATH : ${lib.makeBinPath [nodejs-16_x]}
   '';
 
   passthru = {

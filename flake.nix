@@ -8,7 +8,7 @@
       let
         pkgs = nixpkgs.legacyPackages.${system};
 
-        typescript-language-server = pkgs.callPackage ./packages/language-server-typescript { };
+        typescript-language-server = pkgs.callPackage ./packages/typescript-language-server { };
         yaml-language-server = pkgs.callPackage ./packages/yaml-language-server { };
 
         neovimWrapper = pkgs.callPackage ./packages/neovim-wrapper.nix { provided-servers = [ typescript-language-server yaml-language-server ]; };

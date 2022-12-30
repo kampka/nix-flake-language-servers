@@ -2,7 +2,7 @@
 
 mkYarnPackage rec {
   pname = "yaml-language-server";
-  version = builtins.replaceStrings [ "\n" ] [ "" ] (builtins.readFile ./src/VERSION);
+  version = "1.10.0";
 
   src = fetchFromGitHub {
     owner = "redhat-developer";
@@ -11,16 +11,10 @@ mkYarnPackage rec {
     sha256 = "sha256-mfFrmT85BstemZnn4iZl5Em05dSG7HDGbV+WYt+qb8c=";
   };
 
-  packageJSON = ./src/package.json;
-  yarnNix = ./src/yarn-dependencies.nix;
-
   nativeBuildInputs = [ makeWrapper ];
 
-  yarnFlags = [ "--offline" ];
-
-
   buildPhase = ''
-    yarn run build
+    yarn --offline build
   '';
   passthru = {
     nodeAppDir = "libexec/${pname}/deps/${pname}";

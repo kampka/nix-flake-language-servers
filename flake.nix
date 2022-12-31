@@ -16,11 +16,13 @@
         yaml-language-server = pkgs.callPackage ./packages/yaml-language-server {};
 
         neovimWrapper = pkgs.callPackage ./packages/neovim-wrapper.nix {provided-servers = [typescript-language-server yaml-language-server];};
-      in rec {
+
         formatter = pkgs.alejandra;
+      in rec {
+        inherit formatter;
         devShell = pkgs.mkShell {
           name = "nix-flake-language-servers";
-          packages = with pkgs; [nixpkgs-fmt yarn2nix node2nix];
+          packages = with pkgs; [formatter yarn2nix node2nix];
         };
         packages =
           flake-utils.lib.flattenTree

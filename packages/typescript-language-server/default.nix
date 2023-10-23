@@ -7,13 +7,13 @@
 }:
 mkYarnPackage rec {
   pname = "typescript-language-server";
-  version = "3.3.0";
+  version = "4.0.0";
 
   src = fetchFromGitHub {
     owner = "typescript-language-server";
     repo = "typescript-language-server";
     rev = "v${version}";
-    sha256 = "sha256-RnXO77vDhtmyTTDRlaDrHte3y56Tsu9khlpAulybBF4=";
+    sha256 = "sha256-yPqIMR1DcVYnuKbL9b6rUiobtqBUbXxHBiJLFvsJn3k=";
   };
 
   nativeBuildInputs = [makeWrapper];
